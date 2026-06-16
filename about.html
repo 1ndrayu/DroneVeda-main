@@ -11,16 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    @media (max-width: 992px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .grid-4, .grid-2 { grid-template-columns: 1fr; } }
-    .text-center { text-align: center; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .mb-30 { margin-bottom: 30px; }
-  </style>
 </head>
 <body>
 
@@ -39,7 +29,6 @@
       
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">HOME</a>
-        <a href="projects.html" class="nav-link">INNOVATION</a>
         <a href="workshops.html" class="nav-link">WORKSHOPS</a>
         <a href="custom-builds.html" class="nav-link">CUSTOM BUILDS</a>
         <a href="about.html" class="nav-link active">ABOUT</a>
@@ -64,6 +53,59 @@
 
   <section id="about" class="section orb-section" style="padding-top: 150px;">
     <div class="container">
+      
+      <!-- Who We Are Section -->
+      <div class="about-grid scroll-reveal" style="margin-bottom: 120px; align-items: center;">
+        <div class="about-content">
+          <h2 class="section-title" style="text-transform: none;">Who We Are</h2>
+          <p class="about-text">DroneVeda is an innovative technology company specializing in the design, development, and deployment of advanced Unmanned Aerial Vehicles (UAVs).</p>
+          <p class="about-text">Founded by a team of passionate engineers and drone enthusiasts, we are dedicated to pushing the boundaries of what's possible in autonomous flight and robotics.</p>
+          <p class="about-text">Whether it's building heavy-lift agricultural drones, creating educational kits for schools, or engineering custom industrial UAVs, our focus is always on reliability, precision, and intelligence.</p>
+        </div>
+        
+        <div class="about-cards" style="display: flex; flex-direction: column; gap: 20px;">
+          <!-- Mission -->
+          <div class="feature-card" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; display: flex; gap: 24px; align-items: center; transition: transform var(--transition-normal); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+             <div class="icon" style="color: var(--logo-green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: rgba(39, 110, 101, 0.1); border-radius: 50%;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+             </div>
+             <div>
+               <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Our Mission</h4>
+               <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">To provide accessible, high-performance drone solutions that empower students and industries alike.</p>
+             </div>
+          </div>
+          
+          <!-- Innovation -->
+          <div class="feature-card" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; display: flex; gap: 24px; align-items: center; transition: transform var(--transition-normal); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+             <div class="icon" style="color: var(--logo-green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: rgba(39, 110, 101, 0.1); border-radius: 50%;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"></path><path d="M10 22h4"></path><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1.5.8 2.8 2 3.5.75.75 1.23 1.52 1.41 2.5"></path></svg>
+             </div>
+             <div>
+               <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Innovation First</h4>
+               <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">Constantly pushing the boundaries of autonomous flight and custom robotics design.</p>
+             </div>
+          </div>
+          
+          <!-- Reliability -->
+          <div class="feature-card" style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 32px; display: flex; gap: 24px; align-items: center; transition: transform var(--transition-normal); box-shadow: 0 4px 20px rgba(0,0,0,0.1);">
+             <div class="icon" style="color: var(--logo-green); flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; background: rgba(39, 110, 101, 0.1); border-radius: 50%;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+             </div>
+             <div>
+               <h4 style="font-size: 1.15rem; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">Reliability</h4>
+               <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin: 0;">Building robust systems designed for real-world agricultural and industrial applications.</p>
+             </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="spacious-divider">
+
+  <section class="section bg-contrast" style="padding-top: 120px;">
+    <div class="container">
       <div class="section-header" style="text-align: center; margin-left: auto; margin-right: auto;">
         <span class="section-label scroll-reveal">AUTHORITY & MISSION</span>
         <h2 class="section-title scroll-reveal">LEADERSHIP & ENGINEERING</h2>
@@ -72,35 +114,24 @@
       
       <div class="projects-grid scroll-reveal">
         <div class="project-card" style="padding: 40px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-          <img src="public/profile-abhijay.jpeg" alt="Abhijay Singh" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 24px; border: 2px solid var(--text-primary);">
           <h4 style="font-size: 1.25rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">ABHIJAY SINGH</h4>
           <p style="color: var(--text-muted); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;">CHIEF EXECUTIVE OFFICER</p>
           <p style="font-size: 0.95rem; line-height: 1.6;">Leads institutional collaborations, business operations, and commercial strategy scaling.</p>
         </div>
 
         <div class="project-card" style="padding: 40px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-          <img src="public/profile-yash.jpeg" alt="Yash Sambare" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 24px; border: 2px solid var(--text-primary);">
           <h4 style="font-size: 1.25rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">YASH SAMBARE</h4>
           <p style="color: var(--text-muted); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;">CHIEF TECHNOLOGY OFFICER</p>
           <p style="font-size: 0.95rem; line-height: 1.6;">Heads UAV custom research, autopilot firmware customization, and electronic payloads.</p>
         </div>
 
         <div class="project-card" style="padding: 40px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-          <img src="public/profile-sethu.jpeg" alt="Sethu Saravanan" style="width: 140px; height: 140px; border-radius: 50%; object-fit: cover; margin-bottom: 24px; border: 2px solid var(--text-primary);">
           <h4 style="font-size: 1.25rem; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">SETHU SARAVANAN</h4>
           <p style="color: var(--text-muted); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px;">CHIEF OPERATING OFFICER</p>
           <p style="font-size: 0.95rem; line-height: 1.6;">Supervises procurement logistics, standard manufacturing guidelines, and ground deployments.</p>
         </div>
       </div>
-      <!-- Soft divider -->
-      <hr style="border: 0; border-top: 2px solid var(--border-color); margin-top: 80px; margin-bottom: 60px; max-width: 200px; margin-left: auto; margin-right: auto;" class="scroll-reveal">
-      
-      <!-- Outlined message box -->
-      <div style="text-align: center; padding: 60px 40px; border: 2px solid var(--border-color); border-radius: 8px; background: var(--bg-secondary); max-width: 800px; margin: 0 auto;" class="scroll-reveal">
-
-        <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1.05rem;">Connect with our engineering office to discuss custom hardware setups, field deployments, or curriculum partnerships.</p>
-        <a href="index.html#contact" class="btn" style="min-width: 280px; padding: 18px 0; font-size: 1.1rem; letter-spacing: 3px; display: inline-block;">CONNECT</a>
-            </div>
+                    
     </div>
   </section>
 
@@ -113,9 +144,13 @@
   </div>
   <footer class="footer">
     <div class="footer-container container">
-      <div class="footer-brand">
-        <h3 class="footer-logo">DRONEVEDA</h3>
-        <p class="footer-tagline">INTELLIGENCE IN EVERY FLIGHT.</p>
+      <div class="footer-brand" style="display: flex; align-items: center; gap: 32px;">
+        <div>
+          <h3 class="footer-logo" style="margin-bottom: 8px;">DRONEVEDA</h3>
+          <p class="footer-tagline" style="margin: 0;">INTELLIGENCE IN EVERY FLIGHT.</p>
+        </div>
+        <div style="width: 1px; height: 60px; background-color: var(--border-color);"></div>
+        <img src="public/logo-footer.png" alt="Drone Veda Technologies" style="max-height: 80px; display: block; object-fit: contain;">
       </div>
     </div>
     <div class="footer-bottom container">

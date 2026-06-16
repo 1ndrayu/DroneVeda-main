@@ -11,44 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    @media (max-width: 992px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .grid-4, .grid-2 { grid-template-columns: 1fr; } }
-    .text-center { text-align: center; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .mb-30 { margin-bottom: 30px; }
-    
-    /* Nav Grid Styles */
-    .nav-grid-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 40px 24px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-color);
-      text-decoration: none;
-      transition: all var(--transition-normal);
-      text-align: center;
-      border-radius: 4px;
-    }
-    /* Removed nav-grid-card hover */
-    /* Removed nav-grid-card child hover */
-    .nav-grid-title {
-      font-size: 1.5rem;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-      font-weight: 700;
-      letter-spacing: 1px;
-    }
-    .nav-grid-desc {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
-  </style>
 </head>
 <body>
 
@@ -67,7 +29,6 @@
       
       <nav class="nav-menu">
         <a href="index.html" class="nav-link active">HOME</a>
-        <a href="projects.html" class="nav-link">INNOVATION</a>
         <a href="workshops.html" class="nav-link">WORKSHOPS</a>
         <a href="custom-builds.html" class="nav-link">CUSTOM BUILDS</a>
         <a href="about.html" class="nav-link">ABOUT</a>
@@ -83,9 +44,9 @@
     </div>
     
     <div class="hero-content container">
-      <span class="hero-badge scroll-reveal">INTELLIGENCE IN EVERY FLIGHT</span>
-      <h1 class="hero-title scroll-reveal">PRECISION UAV ENGINEERING</h1>
-      <p class="hero-subtitle scroll-reveal">Off-the-shelf solutions don't always cut it. We design bespoke UAVs, autonomous rovers, and conduct hands-on institutional training.</p>
+      <h1 class="hero-title scroll-reveal">DRONEVEDA</h1>
+      <h2 class="hero-badge scroll-reveal">INTELLIGENCE IN EVERY FLIGHT</h2>
+      <p class="hero-subtitle scroll-reveal">Pioneering UAV education, autnomous agriculture and precision drone solutions for tomorrow.</p>
       
       <div class="hero-actions scroll-reveal">
         <a href="#contact" class="btn">START A PROJECT</a>
@@ -100,14 +61,7 @@
         <p class="section-desc scroll-reveal">Explore how we are building the future of autonomous flight and robotics training.</p>
       </div>
 
-      <div class="grid-2 scroll-reveal">
-        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85)), url('public/rover.jpeg') center/cover no-repeat !important; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
-          <h3 class="trust-title text-accent" style="font-size: 1.4rem; margin-bottom: 16px;">INNOVATION</h3>
-          <p class="trust-desc" style="margin-bottom: 24px; font-size: 1rem;">Real projects moving beyond the classroom. From solar-powered crop monitoring drones to fully autonomous robotics for academic competitions.</p>
-          <a href="projects.html" class="btn">VIEW PROJECTS</a>
-        </div>
-
-        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85)), url('public/cohort1.jpeg') center/cover no-repeat !important; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
+      <div class="grid-2 scroll-reveal">        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85)), url('public/cohort1.jpeg') center/cover no-repeat !important; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
           <h3 class="trust-title text-accent" style="font-size: 1.4rem; margin-bottom: 16px;">TRAINING</h3>
           <p class="trust-desc" style="margin-bottom: 24px; font-size: 1rem;">Structured training programs for aspiring engineers. Learn everything from basic quadcopter assembly to advanced PID tuning and autonomous GPS missions.</p>
           <a href="workshops.html" class="btn">EXPLORE TIERS</a>
@@ -119,7 +73,7 @@
           <a href="custom-builds.html" class="btn">VIEW SPECS</a>
         </div>
 
-        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85)), url('public/team.png') center/cover no-repeat !important; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
+        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85))">
           <h3 class="trust-title text-accent" style="font-size: 1.4rem; margin-bottom: 16px;">THE TEAM</h3>
           <p class="trust-desc" style="margin-bottom: 24px; font-size: 1rem;">Meet the core aerospace engineers behind DroneVeda. Operating custom assembly, testing, and training facilities to guarantee precision in every mission.</p>
           <a href="about.html" class="btn">MEET THE TEAM</a>
@@ -128,7 +82,9 @@
     </div>
   </section>
 
-  <section id="contact" class="section contact-section">
+  <hr class="spacious-divider">
+
+  <section id="contact" class="section contact-section bg-contrast">
     <div class="container">
       <div class="contact-grid">
         <div class="contact-text-col">
@@ -197,13 +153,17 @@
     
   <div class="page-navigation">
     <div></div>
-    <a href="projects.html" class="page-nav-btn page-nav-next">NEXT: INNOVATION <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <a href="workshops.html" class="page-nav-btn page-nav-next">NEXT: WORKSHOPS <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
   <footer class="footer">
     <div class="footer-container container">
-      <div class="footer-brand">
-        <h3 class="footer-logo">DRONEVEDA</h3>
-        <p class="footer-tagline">INTELLIGENCE IN EVERY FLIGHT.</p>
+      <div class="footer-brand" style="display: flex; align-items: center; gap: 32px;">
+        <div>
+          <h3 class="footer-logo" style="margin-bottom: 8px;">DRONEVEDA</h3>
+          <p class="footer-tagline" style="margin: 0;">INTELLIGENCE IN EVERY FLIGHT.</p>
+        </div>
+        <div style="width: 1px; height: 60px; background-color: var(--border-color);"></div>
+        <img src="public/logo-footer.png" alt="Drone Veda Technologies" style="max-height: 80px; display: block; object-fit: contain;">
       </div>
     </div>
     <div class="footer-bottom container">

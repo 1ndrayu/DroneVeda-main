@@ -102,6 +102,19 @@ body {
   }
 }
 
+.bg-contrast {
+  background-color: var(--bg-tertiary) !important;
+}
+
+.spacious-divider {
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+  width: 90%;
+  max-width: var(--max-width);
+}
+
 .section-header {
   max-width: 700px;
   margin-bottom: 60px;
@@ -409,31 +422,33 @@ a {
 
 .hero-badge {
   display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 200;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
+  line-height: 1.05;
   color: var(--text-primary);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .hero-title {
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 800;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 1000;
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.02em;
   color: var(--text-primary);
-  margin-bottom: 24px;
+  margin-bottom: 15px;
   text-transform: uppercase;
 }
 
 .hero-subtitle {
-  font-size: clamp(1.1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 2vw, 1rem);
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 40px;
-  max-width: 600px;
-  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  max-width: 400px;
+  font-weight: 100;
+  letter-spacing: 0.2em;
 }
 
 .hero-actions {
@@ -644,6 +659,7 @@ a {
   color: var(--text-secondary);
   margin-bottom: 28px;
   font-weight: 300;
+  text-align:justify;
 }
 
 .about-badges {
@@ -833,7 +849,7 @@ a {
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
@@ -841,7 +857,7 @@ a {
 .trust-desc {
   font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.8;
   font-weight: 300;
 }
 
@@ -982,7 +998,7 @@ select.form-control {
 }
 
 .footer-brand {
-  max-width: 400px;
+  max-width: 600px;
 }
 
 .footer-logo {
@@ -1056,15 +1072,11 @@ select.form-control {
 
 /* Animation entry points */
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity var(--transition-slow), transform var(--transition-slow);
+  --g-progress: 0;
+  opacity: var(--g-progress);
+  transform: translateY(calc(30px * (1 - var(--g-progress))));
+  transition: transform 0.1s linear, opacity 0.1s linear;
   will-change: transform, opacity;
-}
-
-.scroll-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .tier-card { display: flex; flex-direction: column; background: var(--bg-card); padding: 40px; border: 1px solid var(--border-color); }
@@ -1135,15 +1147,15 @@ select.form-control {
 }
 
 .btn:hover {
-  border-color: var(--logo-green) !important;
-  color: var(--logo-green) !important;
+  border-color: var(--text-secondary) !important;
+  color: var(#fff) !important;
   background-color: transparent !important;
   box-shadow: none !important;
 }
 
 .btn:active {
-  background-color: var(--logo-green) !important;
-  border-color: var(--logo-green) !important;
+  background-color: var(#fff) !important;
+  border-color: var(--bg-primary) !important;
   color: #ffffff !important;
   transform: scale(0.98) !important;
 }
@@ -1156,7 +1168,7 @@ select.form-control {
 }
 .trust-box:hover, .tier-card:hover, .project-card:hover, .build-card:hover, .nav-grid-card:hover {
   outline: none !important;
-  transform: scale(1.025) !important;
+  transform: scale(1.01) !important;
 }
 
 /* Wide Tier Card for Projects */
@@ -1223,3 +1235,12 @@ select.form-control {
   .page-navigation { padding: 40px 24px; flex-direction: column; gap: 24px; }
   .page-nav-prev, .page-nav-next { margin: 0; width: 100%; justify-content: center; }
 }
+
+/* Utility Classes Extracted from HTML */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+@media (max-width: 992px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .grid-4, .grid-2 { grid-template-columns: 1fr; } }
+.text-center { text-align: center; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.mb-30 { margin-bottom: 30px; }

@@ -11,16 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="style.css">
-  
-  <style>
-    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
-    @media (max-width: 992px) { .grid-4 { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 768px) { .grid-4, .grid-2 { grid-template-columns: 1fr; } }
-    .text-center { text-align: center; }
-    .mx-auto { margin-left: auto; margin-right: auto; }
-    .mb-30 { margin-bottom: 30px; }
-  </style>
 </head>
 <body>
 
@@ -39,7 +29,6 @@
       
       <nav class="nav-menu">
         <a href="index.html" class="nav-link">HOME</a>
-        <a href="projects.html" class="nav-link">INNOVATION</a>
         <a href="workshops.html" class="nav-link">WORKSHOPS</a>
         <a href="custom-builds.html" class="nav-link active">CUSTOM BUILDS</a>
         <a href="about.html" class="nav-link">ABOUT</a>
@@ -127,7 +116,9 @@
     </div>
   </section>
 
-  <section class="section bg-alt">
+  <hr class="spacious-divider">
+
+  <section class="section bg-contrast">
     <div class="container">
       <div class="section-header">
         <span class="section-label scroll-reveal">OUR PROCESS</span>
@@ -167,9 +158,13 @@
   </div>
   <footer class="footer">
     <div class="footer-container container">
-      <div class="footer-brand">
-        <h3 class="footer-logo">DRONEVEDA</h3>
-        <p class="footer-tagline">INTELLIGENCE IN EVERY FLIGHT.</p>
+      <div class="footer-brand" style="display: flex; align-items: center; gap: 32px;">
+        <div>
+          <h3 class="footer-logo" style="margin-bottom: 8px;">DRONEVEDA</h3>
+          <p class="footer-tagline" style="margin: 0;">INTELLIGENCE IN EVERY FLIGHT.</p>
+        </div>
+        <div style="width: 1px; height: 60px; background-color: var(--border-color);"></div>
+        <img src="public/logo-footer.png" alt="Drone Veda Technologies" style="max-height: 80px; display: block; object-fit: contain;">
       </div>
     </div>
     <div class="footer-bottom container">

@@ -31,17 +31,61 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const revealElements = document.querySelectorAll('.scroll-reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  const animatedElements = document.querySelectorAll('.scroll-reveal');
+  const updateAnimations = (force = false) => {
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - vh;
+    const scrollRemaining = maxScroll - scrollY;
+    
+    animatedElements.forEach(el => {
+        if (!force && el.dataset.inView !== "true") return;
 
-  revealElements.forEach(el => revealObserver.observe(el));
+        const rect = el.getBoundingClientRect();
+        
+        const start = vh * 1.0; 
+        const end = vh * 0.5;   
+        
+        const finalTop = rect.top - scrollRemaining;
+        const effectiveEnd = (finalTop > end) ? finalTop : end;
+
+        let progress = (start - rect.top) / (start - effectiveEnd);
+        progress = Math.max(0, Math.min(1, progress));
+        
+        el.style.setProperty('--g-progress', progress.toFixed(4));
+    });
+  };
+
+  const scrollObserver = new IntersectionObserver((entries) => {
+    let needsUpdate = false;
+    entries.forEach(entry => {
+        const wasInView = entry.target.dataset.inView === "true";
+        const isInView = entry.isIntersecting;
+        entry.target.dataset.inView = isInView ? "true" : "false";
+        
+        if (isInView && !wasInView) needsUpdate = true;
+    });
+    
+    if (needsUpdate) updateAnimations();
+  }, { 
+    threshold: 0,
+    rootMargin: '100px 0px'
+  });
+
+  animatedElements.forEach(el => scrollObserver.observe(el));
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            updateAnimations();
+            ticking = false;
+        });
+        ticking = true;
+    }
+  }, { passive: true });
+
+  updateAnimations(true);
 
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
