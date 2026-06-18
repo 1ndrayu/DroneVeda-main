@@ -37,19 +37,19 @@
     </div>
   </header>
 
-  <section class="hero-section">
-    <div class="hero-video-container">
+  <section class="hero-section parallax-container">
+    <div class="hero-video-container parallax-bg" data-speed="0.5">
       <video src="public/drone_loop.mp4" class="hero-video" autoplay loop muted playsinline style="object-position: center;"></video>
       <div class="hero-overlay"></div>
     </div>
     
-    <div class="hero-content container">
+    <div class="hero-content container fade-up">
       <h1 class="hero-title scroll-reveal">DRONEVEDA</h1>
       <h2 class="hero-badge scroll-reveal">INTELLIGENCE IN EVERY FLIGHT</h2>
-      <p class="hero-subtitle scroll-reveal">Pioneering UAV education, autnomous agriculture and precision drone solutions for tomorrow.</p>
+      <p class="hero-subtitle scroll-reveal delay-100">Pioneering UAV education, autnomous agriculture and precision drone solutions for tomorrow.</p>
       
-      <div class="hero-actions scroll-reveal">
-        <a href="#contact" class="btn">START A PROJECT</a>
+      <div class="hero-actions scroll-reveal delay-200">
+        <a href="#contact" class="btn hover-glow">START A PROJECT</a>
       </div>
     </div>
   </section>
@@ -61,19 +61,20 @@
         <p class="section-desc scroll-reveal">Explore how we are building the future of autonomous flight and robotics training.</p>
       </div>
 
-      <div class="grid-2 scroll-reveal">        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85)), url('public/workshop.jpeg') center/cover no-repeat !important; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
+      <div class="grid-2 scroll-reveal fade-up">
+        <div class="trust-box glass-card hover-glow" style="background: linear-gradient(rgba(17, 22, 20, 0.6), rgba(17, 22, 20, 0.8)), url('public/workshop.jpeg') center/cover no-repeat !important; padding: 40px;">
           <h3 class="trust-title text-accent" style="font-size: 1.4rem; margin-bottom: 16px;">TRAINING</h3>
           <p class="trust-desc" style="margin-bottom: 24px; font-size: 1rem;">Structured training programs for aspiring engineers. Learn everything from basic quadcopter assembly to advanced PID tuning and autonomous GPS missions.</p>
           <a href="workshops.html" class="btn">EXPLORE TIERS</a>
         </div>
 
-        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85)), url('public/cohort1.jpeg') center/cover no-repeat !important; padding: 40px; border-radius: 8px; border: 1px solid var(--border-color);">
+        <div class="trust-box glass-card hover-glow" style="background: linear-gradient(rgba(17, 22, 20, 0.6), rgba(17, 22, 20, 0.8)), url('public/cohort1.jpeg') center/cover no-repeat !important; padding: 40px;">
           <h3 class="trust-title text-accent" style="font-size: 1.4rem; margin-bottom: 16px;">ARTIFICIAL INTELLIGENCE</h3>
           <p class="trust-desc" style="margin-bottom: 24px; font-size: 1rem;">Bespoke UAV manufacturing tailored for specialized industries. We engineer heavy-lift agricultural sprayers and LiDAR-equipped industrial mapping drones.</p>
           <a href="custom-builds.html" class="btn">VIEW SPECS</a>
         </div>
 
-        <div class="trust-box" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.85))">
+        <div class="trust-box glass-card hover-glow" style="background: linear-gradient(rgba(17, 22, 20, 0.8), rgba(17, 22, 20, 0.9)); padding: 40px; grid-column: 1 / -1;">
           <h3 class="trust-title text-accent" style="font-size: 1.4rem; margin-bottom: 16px;">THE TEAM</h3>
           <p class="trust-desc" style="margin-bottom: 24px; font-size: 1rem;">Meet the core aerospace engineers behind DroneVeda. Operating custom assembly, testing, and training facilities to guarantee precision in every mission.</p>
           <a href="about.html" class="btn">MEET THE TEAM</a>
@@ -111,8 +112,8 @@
           </div>
         </div>
 
-        <div class="contact-form-col scroll-reveal">
-          <div class="form-wrapper">
+        <div class="contact-form-col scroll-reveal fade-up delay-100">
+          <div class="form-wrapper glass-panel">
             <form id="contactForm" action="https://formsubmit.co/droneveda1@gmail.com" method="POST">
               <input type="hidden" name="_captcha" value="false">
               <input type="hidden" name="_template" value="table">
@@ -141,7 +142,7 @@
                 </label>
                 <textarea id="projectDetailsTextarea" name="message" class="form-control" rows="4" required style="resize: none; overflow: hidden;"></textarea>
               </div>
-              <button type="submit" id="submitBtn" class="btn btn-primary btn-block">SUBMIT INQUIRY</button>
+              <button type="submit" id="submitBtn" class="btn btn-primary btn-block hover-glow">SUBMIT INQUIRY</button>
             </form>
             <div id="formStatus" class="form-status-box" style="display: none;"></div>
           </div>

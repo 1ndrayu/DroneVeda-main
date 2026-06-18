@@ -64,21 +64,39 @@ document.addEventListener('DOMContentLoaded', () => {
         entry.target.dataset.inView = isInView ? "true" : "false";
         
         if (isInView && !wasInView) needsUpdate = true;
+
+        // Modern UI fade-up logic
+        if (isInView && entry.target.classList.contains('fade-up')) {
+            entry.target.classList.add('visible');
+        }
     });
     
     if (needsUpdate) updateAnimations();
   }, { 
-    threshold: 0,
-    rootMargin: '100px 0px'
+    threshold: 0.1,
+    rootMargin: '50px 0px'
   });
 
   animatedElements.forEach(el => scrollObserver.observe(el));
+  
+  // Observe fade-up elements as well
+  document.querySelectorAll('.fade-up').forEach(el => scrollObserver.observe(el));
+
+  const parallaxElements = document.querySelectorAll('.parallax-bg');
 
   let ticking = false;
   window.addEventListener('scroll', () => {
     if (!ticking) {
         window.requestAnimationFrame(() => {
             updateAnimations();
+            
+            // Parallax logic
+            const scrollY = window.scrollY;
+            parallaxElements.forEach(el => {
+                const speed = el.dataset.speed || 0.4;
+                el.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+
             ticking = false;
         });
         ticking = true;
