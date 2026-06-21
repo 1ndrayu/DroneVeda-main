@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Update dynamic background gradient based on scroll
-  window.addEventListener('scroll', () => {
-    const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-    document.documentElement.style.setProperty('--scroll-y', scrollPercent);
-  });
-
+  
+  // Mobile menu toggle
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navMenu = document.querySelector('.nav-menu');
   const navLinks = document.querySelectorAll('.nav-link, .nav-btn');
@@ -23,156 +19,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileToggle.addEventListener('click', toggleMenu);
     navLinks.forEach(link => link.addEventListener('click', closeMenu));
-    
-    document.addEventListener('click', (e) => {
-      if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target) && navMenu.classList.contains('active')) {
-        closeMenu();
-      }
-    });
   }
 
-  const animatedElements = document.querySelectorAll('.scroll-reveal');
-  const updateAnimations = (force = false) => {
-    const vh = window.innerHeight;
-    const scrollY = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - vh;
-    const scrollRemaining = maxScroll - scrollY;
-    
-    animatedElements.forEach(el => {
-        if (!force && el.dataset.inView !== "true") return;
-
-        const rect = el.getBoundingClientRect();
-        
-        const start = vh * 1.0; 
-        const end = vh * 0.5;   
-        
-        const finalTop = rect.top - scrollRemaining;
-        const effectiveEnd = (finalTop > end) ? finalTop : end;
-
-        let progress = (start - rect.top) / (start - effectiveEnd);
-        progress = Math.max(0, Math.min(1, progress));
-        
-        el.style.setProperty('--g-progress', progress.toFixed(4));
-    });
-  };
-
-  const scrollObserver = new IntersectionObserver((entries) => {
-    let needsUpdate = false;
-    entries.forEach(entry => {
-        const wasInView = entry.target.dataset.inView === "true";
-        const isInView = entry.isIntersecting;
-        entry.target.dataset.inView = isInView ? "true" : "false";
-        
-        if (isInView && !wasInView) needsUpdate = true;
-
-        // Modern UI fade-up logic
-        if (isInView && entry.target.classList.contains('fade-up')) {
-            entry.target.classList.add('visible');
+  // Smooth scroll for nav links
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId.startsWith('#')) {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
         }
+      }
     });
-    
-    if (needsUpdate) updateAnimations();
-  }, { 
-    threshold: 0.1,
-    rootMargin: '50px 0px'
   });
 
-  animatedElements.forEach(el => scrollObserver.observe(el));
-  
-  // Observe fade-up elements as well
-  document.querySelectorAll('.fade-up').forEach(el => scrollObserver.observe(el));
+  // Intersection Observer for cleanly revealing and hiding elements via scrolling
+  const revealOptions = {
+    root: null,
+    rootMargin: '0px 0px -10% 0px', // Animates slightly before hitting the edge of the screen
+    threshold: 0.1 
+  };
 
-  const parallaxElements = document.querySelectorAll('.parallax-bg');
-
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-        window.requestAnimationFrame(() => {
-            updateAnimations();
-            
-            // Parallax logic
-            const scrollY = window.scrollY;
-            parallaxElements.forEach(el => {
-                const speed = el.dataset.speed || 0.4;
-                el.style.transform = `translateY(${scrollY * speed}px)`;
-            });
-
-            ticking = false;
-        });
-        ticking = true;
-    }
-  }, { passive: true });
-
-  updateAnimations(true);
-
-  const contactForm = document.getElementById('contactForm');
-  const formStatus = document.getElementById('formStatus');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      let isValid = true;
-      const requiredFields = contactForm.querySelectorAll('[required]');
-
-      requiredFields.forEach(field => {
-        const group = field.closest('.form-group');
-        if (!field.value.trim()) {
-          group.classList.add('has-error');
-          isValid = false;
-        } else {
-          group.classList.remove('has-error');
-        }
-      });
-
-      if (isValid) {
-        const submitBtn = document.getElementById('submitBtn');
-        submitBtn.disabled = true;
-        
-        formStatus.style.display = 'flex';
-        formStatus.className = 'form-status-box form-status-sending';
-        formStatus.innerHTML = 'Transmitting inquiry protocol...';
-        
-        const formData = new FormData(contactForm);
-        fetch('https://formsubmit.co/ajax/droneveda1@gmail.com', {
-          method: 'POST',
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(data => {
-          formStatus.className = 'form-status-box form-status-success';
-          formStatus.innerHTML = 'Transmission successful. Engineering will review your scope.';
-          contactForm.reset();
-          submitBtn.disabled = false;
-          
-          setTimeout(() => {
-            formStatus.style.display = 'none';
-          }, 5000);
-        })
-        .catch(error => {
-          formStatus.className = 'form-status-box';
-          formStatus.innerHTML = 'Transmission failed. Try again.';
-          formStatus.style.color = 'var(--error-color)';
-          submitBtn.disabled = false;
-        });
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        // Remove class to hide it as soon as the element drops out of view
+        entry.target.classList.remove('visible');
       }
     });
-  }
+  }, revealOptions);
 
-  // Auto-resize and word count for project details textarea
-  const projectDetailsTextarea = document.getElementById('projectDetailsTextarea');
-  const wordCountDisplay = document.getElementById('wordCount');
-  
-  if (projectDetailsTextarea && wordCountDisplay) {
-    projectDetailsTextarea.addEventListener('input', function() {
-      this.style.height = 'auto';
-      this.style.height = this.scrollHeight + 'px';
-      
-      const text = this.value.trim();
-      const words = text.split(/\s+/).filter(word => word.length > 0);
-      wordCountDisplay.textContent = words.length + (words.length === 1 ? ' WORD' : ' WORDS');
-    });
-  }
+  // Attach observer to all elements meant to reveal
+  const revealElements = document.querySelectorAll('.reveal, .reveal-group');
+  revealElements.forEach((element) => {
+    revealObserver.observe(element);
+  });
+
 });
