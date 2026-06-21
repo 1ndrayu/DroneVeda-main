@@ -40,7 +40,7 @@
 }
 
 html {
-  font-size: 85%;
+  font-size: 80%;
   scroll-behavior: smooth;
   scrollbar-width: thin;
   scrollbar-color: var(--border-hover) var(--bg-primary);
@@ -188,14 +188,14 @@ a {
   font-weight: 700 !important;
   text-transform: uppercase !important;
   letter-spacing: 2px !important;
-  padding: 16px 36px !important;
+  padding: 12px 24px !important;
   cursor: pointer !important;
   white-space: nowrap !important;
   transition: all var(--transition-normal) !important;
   
-  border: 2px solid var(--text-muted) !important;
+  border: 1px solid #fff !important;
   background-color: transparent !important;
-  color: var(--text-primary) !important;
+  color: #fff !important;
   text-decoration: none !important;
   
   min-height: 54px !important;
@@ -214,16 +214,16 @@ a {
 }
 
 .btn:hover {
-  border-color: var(--logo-green) !important;
-  color: var(--logo-green) !important;
-  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #000 !important;
+  background-color: #fff !important;
   box-shadow: none !important;
 }
 
 .btn:active {
-  background-color: var(--logo-green) !important;
-  border-color: var(--logo-green) !important;
-  color: #ffffff !important;
+  background-color: var(--bg-primary) !important;
+  border-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
 }
 
 .btn-block {
@@ -604,12 +604,12 @@ a {
 }
 
 .form-control::placeholder {
-  color: #444444;
+  color: #ffffff;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: var(--text-primary);
+  border-color: var(--logo-green);
 }
 
 .footer {
@@ -715,10 +715,10 @@ a {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(255, 255, 255, 0.05);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
-  transition: border-color 0.4s ease;
+  box-shadow: 0 0px 0px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.2s ease;
 }
 
 .glass-card:hover {
