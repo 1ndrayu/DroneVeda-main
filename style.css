@@ -62,9 +62,9 @@ body {
   top: 0; left: 0; width: 100vw; height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.05; 
+  opacity: 0.02; 
   background-image: radial-gradient(rgb(23, 23, 23) 1px, transparent 1.5px);
-  background-size: 14px 14px;
+  background-size: 5px 5px;
 }
 
 .bg-alt {
@@ -613,7 +613,7 @@ a {
 }
 
 .footer {
-  background-color: var(--bg-primary);
+  background-color: #ffffff;
   padding: 80px 0 40px;
 }
 
@@ -629,17 +629,18 @@ a {
 .footer-logo {
   font-size: 1.35rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--bg-primary);
   margin-bottom: 8px;
   letter-spacing: 2px;
 }
 
 .footer-tagline {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--bg-secondary);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 500;
+  opacity: 0.7;
 }
 
 .footer-bottom {
@@ -647,17 +648,19 @@ a {
   justify-content: space-between;
   align-items: center;
   padding-top: 40px;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--bg-primary);
+  border-opacity: 0.2;
   flex-wrap: wrap;
   gap: 16px;
 }
 
 .copyright, .disclaimer {
   font-size: 0.75rem;
-  color: var(--text-muted);
+  color: var(--bg-tertiary);
   letter-spacing: 1px;
   text-transform: uppercase;
   font-weight: 500;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
