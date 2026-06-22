@@ -56,7 +56,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+x
 .noise-overlay {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -678,11 +678,11 @@ a {
 
 .tier-card { display: flex; flex-direction: column; background: var(--bg-card); padding: 40px; border: 1px solid var(--border-color); }
 .tier-card.border-accent { border-top: 4px solid var(--text-primary); }
-.tier-name { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: var(--text-muted); }
-.tier-title { font-size: 1.5rem; font-weight: 800; margin: 8px 0; color: var(--text-primary); }
-.tier-audience { font-size: 0.85rem; color: #aaa; margin-bottom: 24px; font-style: italic; }
+.tier-name { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; color: var(--text-muted);}
+.tier-title { font-size: 1.5rem; font-weight: 800; margin: 0px 0; color: var(--text-primary); }
+.tier-audience { font-size: 0.85rem; color: #aaa; margin-bottom: 24px; letter-spacing: 0.5px; }
 .tier-desc { font-size: 0.95rem; margin-bottom: 24px; }
-.tier-features { flex-grow: 1; border-top: 1px solid var(--border-color); padding-top: 24px; margin-bottom: 32px; padding: 0; list-style: none;}
+.tier-features { flex-grow: 1; border-top:0px solid var(--border-color); padding-top: 24px; margin-bottom: 32px; padding: 0; list-style: none;}
 .tier-features li { font-size: 0.85rem; margin-bottom: 12px; position: relative; padding-left: 24px; color: var(--text-secondary); }
 .tier-features li::before { content: ''; position: absolute; left: 0; top: 3px; width: 14px; height: 14px; background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238e8e93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E"); background-size: contain; background-repeat: no-repeat; }
 
